@@ -149,9 +149,10 @@ var uis = angular.module('ui.select', [])
   }
 
   return function(matchItem, query) {
+    var result;
     if(query && matchItem) {
       var parts = matchItem.split(new RegExp(escapeRegexp(query), 'gi'));
-      var result = "";
+      result = "";
       for (var i = 0; i < parts.length; i++) {
         if (isZeroWidthJoiner(parts[i], query)) {
           if(i == parts.length-1)
